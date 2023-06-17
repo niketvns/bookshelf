@@ -19,10 +19,10 @@ const Dropdown = ({isDropdown, setIsDropdown, id, setBooks, books}) => {
                     <BsCheck className={'text-xl'}/>Currently reading
                 </li>
                 <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('wantsToRead')}>
-                    Want to read
+                    <BsCheck className={'text-xl text-gray-200'}/> Want to read
                 </li>
                 <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('read')}>
-                    Read
+                    <BsCheck className={'text-xl text-gray-200'}/> Read
                 </li>
             </ul>
         </div>
