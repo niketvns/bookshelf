@@ -25,21 +25,23 @@ const Search = () => {
                        className={'w-full h-full backdrop-sepia-0 bg-black/5 p-2 border-none outline-0 px-4'}
                        onChange={searchHandler} value={searchInput}/>
             </div>
-            <div className={'search-result p-2'}>
-                {
-                    searchInput &&
-                    <h1 className={'text-2xl border-b-2 mb-4'}>Search Result
-                        for &apos;{searchInput}&apos;</h1>
-                }
-                        <div className={'flex gap-4 flex-wrap justify-center items-center'}>
-                            {
-                                searchBooks.length ?
+            {
+                searchInput &&
+                <div className={'search-result p-2'}>
+                    {
+                        <h1 className={'text-2xl border-b-2 mb-4'}>Search Result
+                            for &apos;{searchInput}&apos;</h1>
+                    }
+                    <div className={'flex gap-4 flex-wrap justify-center items-center'}>
+                        {
+                            searchBooks.length ?
                                 searchBooks.map(book => (
                                     <BookCard key={book.id} book={book}/>
-                                )): <p className={'text-black/40 text-2xl'}>Not found</p>
-                            }
-                        </div>
-            </div>
+                                )) : <p className={'text-black/40 text-2xl'}>Not found</p>
+                        }
+                    </div>
+                </div>
+            }
         </div>
     );
 };

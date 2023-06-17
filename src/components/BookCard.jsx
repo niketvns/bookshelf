@@ -4,7 +4,7 @@ import Dropdown from "./Dropdown.jsx";
 
 const BookCard = ({book, books, setBooks}) => {
     const [isDropdown, setIsDropdown] = useState(false)
-    const {image, title, rating, writer} = book;
+    const {image, title, writer} = book;
     return (
         <div className={'book w-44 shadow-lg p-2 relative select-none'}>
             <div className={'relative'}>

@@ -1,10 +1,10 @@
 import React from 'react';
-import {AiOutlineCheck} from 'react-icons/ai'
+import {BsCheck} from 'react-icons/bs'
 
 const Dropdown = ({isDropdown, setIsDropdown, id, setBooks, books}) => {
 
     const changeCategory = (category) => {
-        setBooks(books.map(book => book.id === id ? {...book, category} : book))
+        setBooks(books.map(book => book.id === id ? {...book, category: category} : book))
         setIsDropdown(false)
     }
 
@@ -15,18 +15,15 @@ const Dropdown = ({isDropdown, setIsDropdown, id, setBooks, books}) => {
                 <li className="block px-4 py-2 bg-black/10 text-black/40 select-none">
                     Move to...
                 </li>
-                <label htmlFor="reading" className={'flex gap-2'}>
-                    <input id={'reading'} type={'checkbox'} className="block px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" value={''}/>
-                    Currently reading
-                </label>
-                <label htmlFor="wantToRead" className={'flex gap-2'}>
-                    <input id={'wantToRead'} type={'checkbox'} className="block px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" value={''}/>
+                <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('reading')}>
+                    <BsCheck className={'text-xl'}/>Currently reading
+                </li>
+                <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('wantsToRead')}>
                     Want to read
-                </label>
-                <label htmlFor="read" className={'flex gap-2'}>
-                    <input id={'read'} type={'checkbox'} className="block px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black"/>
+                </li>
+                <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('read')}>
                     Read
-                </label>
+                </li>
             </ul>
         </div>
     );
