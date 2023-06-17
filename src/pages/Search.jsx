@@ -1,18 +1,19 @@
 import {BiArrowBack} from 'react-icons/bi'
 import {useNavigate} from "react-router-dom";
 import {useState} from "react";
-import {allBooks} from "../db/books.js";
 import BookCard from "../components/BookCard.jsx";
+import {useGlobalBooks} from "../context/bookContext.jsx";
 
 const Search = () => {
     const [searchInput, setSearchInput] = useState('')
     const navigate = useNavigate()
+    const {books} = useGlobalBooks()
 
     const searchHandler = (e) => {
         setSearchInput(e.target.value)
     }
 
-    const searchBooks = allBooks.filter(book => book.title.toUpperCase().includes(searchInput.toUpperCase()) || book.writer.toUpperCase().includes(searchInput.toUpperCase()))
+    const searchBooks = books.filter(book => book.title.toUpperCase().includes(searchInput.toUpperCase()) || book.writer.toUpperCase().includes(searchInput.toUpperCase()))
 
     return (
         <div className={'search'}>

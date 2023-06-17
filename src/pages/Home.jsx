@@ -1,10 +1,9 @@
 import BookCard from "../components/BookCard.jsx";
-import {allBooks} from "../db/books.js";
 import Plus from "../components/Plus.jsx";
-import {useState} from "react";
+import {useGlobalBooks} from "../context/bookContext.jsx";
 
 const Home = () => {
-const [books, setBooks] = useState(allBooks)
+    const {books} = useGlobalBooks()
 
     return (
         <div className={'p-4 px-2 sm:px-8 md:px-20'}>
@@ -13,7 +12,7 @@ const [books, setBooks] = useState(allBooks)
                 <div className={'flex gap-4 flex-wrap justify-center items-center'}>
                     {
                         books.filter(book => book.category==='reading').map(book => (
-                            <BookCard books={books} setBooks={setBooks} id={book.id} key={book.id} book={book}/>
+                            <BookCard id={book.id} key={book.id} book={book}/>
                         ))
                     }
                 </div>
@@ -24,7 +23,7 @@ const [books, setBooks] = useState(allBooks)
                 <div className={'flex gap-4 flex-wrap justify-center items-center'}>
                     {
                         books.filter(book => book.category==='wantsToRead').map(book => (
-                            <BookCard books={books} setBooks={setBooks} id={book.id} key={book.id} book={book}/>
+                            <BookCard id={book.id} key={book.id} book={book}/>
                         ))
                     }
                 </div>
@@ -35,7 +34,7 @@ const [books, setBooks] = useState(allBooks)
                 <div className={'flex gap-4 flex-wrap justify-center items-center'}>
                     {
                         books.filter(book => book.category==='read').map(book => (
-                            <BookCard books={books} setBooks={setBooks} id={book.id} key={book.id} book={book}/>
+                            <BookCard id={book.id} key={book.id} book={book}/>
                         ))
                     }
                 </div>

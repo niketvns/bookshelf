@@ -1,7 +1,9 @@
 import React from 'react';
 import {BsCheck} from 'react-icons/bs'
+import {useGlobalBooks} from "../context/bookContext.jsx";
 
-const Dropdown = ({isDropdown, setIsDropdown, curBook, setBooks, books}) => {
+const Dropdown = ({isDropdown, setIsDropdown, curBook}) => {
+    const {books, setBooks} = useGlobalBooks()
 
     const changeCategory = (category) => {
         setBooks(books.map(book => book.id === curBook.id ? {...book, category: category} : book))
