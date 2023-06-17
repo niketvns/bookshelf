@@ -1,10 +1,10 @@
 import React from 'react';
 import {BsCheck} from 'react-icons/bs'
 
-const Dropdown = ({isDropdown, setIsDropdown, id, setBooks, books}) => {
+const Dropdown = ({isDropdown, setIsDropdown, curBook, setBooks, books}) => {
 
     const changeCategory = (category) => {
-        setBooks(books.map(book => book.id === id ? {...book, category: category} : book))
+        setBooks(books.map(book => book.id === curBook.id ? {...book, category: category} : book))
         setIsDropdown(false)
     }
 
@@ -16,13 +16,13 @@ const Dropdown = ({isDropdown, setIsDropdown, id, setBooks, books}) => {
                     Move to...
                 </li>
                 <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('reading')}>
-                    <BsCheck className={'text-xl'}/>Currently reading
+                    { curBook.category === 'reading' && <BsCheck className={`text-xl`}/>}Currently reading
                 </li>
                 <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('wantsToRead')}>
-                    <BsCheck className={'text-xl text-gray-200'}/> Want to read
+                    { curBook.category === 'wantsToRead' && <BsCheck className={`text-xl`}/>} Want to read
                 </li>
                 <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('read')}>
-                    <BsCheck className={'text-xl text-gray-200'}/> Read
+                    { curBook.category === 'read' && <BsCheck className={`text-xl`}/>} Read
                 </li>
             </ul>
         </div>

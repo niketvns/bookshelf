@@ -12,7 +12,7 @@ const BookCard = ({book, books, setBooks}) => {
                 <div className={'absolute -bottom-6 right-0 text-3xl bg-green-600 rounded-full p-1 cursor-pointer text-white'}>
                     <IoMdArrowDropdown onClick={()=>setIsDropdown(prevState => !prevState)}/>
                     {/*Dropdown menu*/}
-                    <Dropdown id={book.id} books={books} setBooks={setBooks} isDropdown={isDropdown} setIsDropdown={setIsDropdown}/>
+                    <Dropdown curBook={book} books={books} setBooks={setBooks} isDropdown={isDropdown} setIsDropdown={setIsDropdown}/>
                 </div>
             </div>
             <p className={'line-clamp-1 mt-4 font-bold'}>{title}</p>
