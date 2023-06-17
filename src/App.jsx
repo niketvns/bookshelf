@@ -1,4 +1,3 @@
-import {useState} from 'react'
 import './App.css'
 import Home from "./pages/Home.jsx";
 import {Routes, Route} from "react-router-dom";
@@ -14,7 +13,6 @@ function App() {
                     <Route path={'/'} element={<Home/>}/>
                     <Route path={'/search'} element={<Search/>}/>
                 </Routes>
-                <Plus/>
             </div>
         </>
     )
