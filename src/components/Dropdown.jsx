@@ -26,6 +26,9 @@ const Dropdown = ({isDropdown, setIsDropdown, curBook}) => {
                 <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('read')}>
                     { curBook.category === 'read' && <BsCheck className={`text-xl`}/>} Read
                 </li>
+                <li className="flex items-center gap-2 px-4 py-2 cursor-pointer hover:bg-green-600 hover:text-white text-black" onClick={()=>changeCategory('none')}>
+                    { curBook.category === 'none' && <BsCheck className={`text-xl`}/>} None
+                </li>
             </ul>
         </div>
     );
