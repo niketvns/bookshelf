@@ -12,7 +12,7 @@ const Dropdown = ({isDropdown, setIsDropdown, curBook}) => {
 
     return (
         <div id="dropdown"
-             className={`z-10 ${isDropdown ? 'block' : 'hidden'} absolute divide-y divide-gray-100 rounded-lg shadow w-44 bg-gray-200 top-14 -left-32`}>
+             className={`z-10 ${isDropdown ? 'block' : 'hidden'} absolute divide-gray-100 rounded-lg shadow w-44 bg-gray-200 top-10 -left-32`}>
             <ul className="py-2 text-sm text-black">
                 <li className="block px-4 py-2 bg-black/10 text-black/40 select-none">
                     Move to...
